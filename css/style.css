@@ -1,0 +1,1706 @@
+@charset "UTF-8";@font-face {
+    font-family: JosefinSans;
+    font-display: swap;
+    src: url(../fonts/JosefinSans-Bold.woff2) format("woff2"),url(../fonts/JosefinSans-Bold.woff) format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: JosefinSansItalic;
+    font-display: swap;
+    src: url(../fonts/JosefinSans-LightItalic.woff2) format("woff2"),url(../fonts/JosefinSans-LightItalic.woff) format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: JosefinSans;
+    font-display: swap;
+    src: url(../fonts/JosefinSans-Regular.woff2) format("woff2"),url(../fonts/JosefinSans-Regular.woff) format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@supports (font-size: clamp(1.125rem ,-0.1277816412rem + 1.668984701vw ,1.875rem)) {
+    :root {
+        font-size:clamp(1.125rem ,-.1277816412rem + 1.668984701vw ,1.875rem)
+    }
+}
+
+@supports not (font-size: clamp(1.125rem ,-0.1277816412rem + 1.668984701vw ,1.875rem)) {
+    :root {
+        font-size:calc(1.125rem + .75 * (100vw - 75.0625rem)/ 44.9375)
+    }
+}
+
+@supports (font-size: clamp(1rem ,0.9375rem + 0.25vw ,1.125rem)) {
+    :root {
+        font-size:clamp(1rem ,.9375rem + .25vw ,1.125rem)
+    }
+}
+
+@supports not (font-size: clamp(1rem ,0.9375rem + 0.25vw ,1.125rem)) {
+    :root {
+        font-size:calc(1rem + .125 * (100vw - 25rem)/ 50)
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0
+}
+
+*,:after,:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+body,html {
+    height: 100%;
+    min-width: 320px
+}
+
+body {
+    line-height: 1;
+    font-family: JosefinSans;
+    font-size: .875rem;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+button,input,textarea {
+    font-family: JosefinSans;
+    font-size: inherit
+}
+
+button {
+    cursor: pointer;
+    color: inherit;
+    background-color: inherit
+}
+
+a {
+    color: inherit
+}
+
+a:link,a:visited {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: none
+}
+
+ul li {
+    list-style: none
+}
+
+img {
+    vertical-align: top
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: inherit;
+    font-size: inherit
+}
+
+body {
+    background-color: hsl(235deg,21%,11%)
+}
+
+.lock body {
+    overflow: hidden;
+    -ms-touch-action: none;
+    touch-action: none
+}
+
+body.light {
+    background-color: hsl(236deg,33%,92%)
+}
+
+.loader__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: none
+}
+
+.loader__wrapper.active {
+    display: block
+}
+
+.loader__wrapper .loader__content .loader__box {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-70%);
+    -ms-transform: translate(-50%,-70%);
+    transform: translate(-50%,-70%);
+    position: absolute
+}
+
+.loader__wrapper .loader__content .loader__box .text {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1rem
+}
+
+.loader__wrapper .loader__content .loader__box .clock {
+    border-radius: 30rem;
+    margin-top: -.1rem;
+    display: block;
+    width: 7.5rem;
+    height: 7.5rem
+}
+
+.loader__wrapper .loader__content .loader__box .clock:after {
+    content: "";
+    position: absolute;
+    top: .7rem;
+    left: 48%;
+    height: 3rem;
+    width: .2rem;
+    border-radius: 5px;
+    -webkit-transform-origin: 50% 97%;
+    -ms-transform-origin: 50% 97%;
+    transform-origin: 50% 97%;
+    -webkit-animation: grdAiguille 2s linear infinite;
+    animation: grdAiguille 2s linear infinite
+}
+
+@-webkit-keyframes grdAiguille {
+    0% {
+        -webkit-transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes grdAiguille {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.loader__wrapper .loader__content .loader__box .clock:before {
+    content: "";
+    position: absolute;
+    top: 1.53rem;
+    left: 48%;
+    height: 2.2rem;
+    width: .2rem;
+    border-radius: 5px;
+    -webkit-transform-origin: 50% 94%;
+    -ms-transform-origin: 50% 94%;
+    transform-origin: 50% 94%;
+    -webkit-animation: ptAiguille 12s linear infinite;
+    animation: ptAiguille 12s linear infinite
+}
+
+@-webkit-keyframes ptAiguille {
+    0% {
+        -webkit-transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes ptAiguille {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.wrapper {
+    min-height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden
+}
+
+.wrapper>main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+}
+
+.wrapper>* {
+    min-width: 0
+}
+
+[class*=__container] {
+    max-width: 73.125rem;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    margin: 0 auto;
+    padding: 0 .9375rem
+}
+
+[class*=-ibg] {
+    position: relative
+}
+
+[class*=-ibg] img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+[class*=-ibg_contain] img {
+    -o-object-fit: contain;
+    object-fit: contain
+}
+
+.app__wrapper {
+    width: 100%
+}
+
+.app__wrapper .app__content {
+    width: 100%;
+    position: relative
+}
+
+.app__wrapper .app__content .background-setting {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1
+}
+
+.app__wrapper .app__content .background-setting img {
+    width: 100%
+}
+
+.app__wrapper .app__content .taskManager__wrapper {
+    font-weight: 400;
+    width: 100%
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content {
+    margin: 0 auto;
+    padding: 3.4rem 0 0 0
+}
+
+@supports (width: clamp(31.25rem ,13.3928571429rem + 35.7142857143vw ,56.25rem)) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content {
+        width:clamp(31.25rem ,13.3928571429rem + 35.7142857143vw ,56.25rem)
+    }
+}
+
+@supports not (width: clamp(31.25rem ,13.3928571429rem + 35.7142857143vw ,56.25rem)) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content {
+        width:calc(31.25rem + 25 * (100vw - 50rem)/ 70)
+    }
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__header .header-title h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 2px
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__header .header-theme img {
+    cursor: pointer
+}
+
+@supports (height: clamp(1.5625rem ,-0.1358695652rem + 2.7173913043vw ,3.125rem)) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__header .header-theme img {
+        height:clamp(1.5625rem ,-.1358695652rem + 2.7173913043vw ,3.125rem)
+    }
+}
+
+@supports not (height: clamp(1.5625rem ,-0.1358695652rem + 2.7173913043vw ,3.125rem)) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__header .header-theme img {
+        height:calc(1.5625rem + 1.5625 * (100vw - 62.5rem)/ 57.5)
+    }
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content ul.tasks {
+    font-family: JosefinSansItalic;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content ul.tasks li {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 1.2rem 1rem .8rem 1rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-control {
+    margin-top: 2rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-control ul.task-control li {
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 0;
+    padding-bottom: .8rem;
+    height: 100%
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-control ul.task-control li form {
+    position: relative
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-control ul.task-control li form input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: 0;
+    padding: 0 4rem 0 0;
+    font-weight: 400
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-control ul.task-control li form button {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: JosefinSansItalic
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result {
+    margin-top: .5rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result .loading-text {
+    padding: .5rem;
+    letter-spacing: 1px;
+    visibility: hidden
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task {
+    margin-right: 1.2rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task button {
+    font-family: JosefinSansItalic
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit {
+    display: none;
+    border-radius: 3px;
+    z-index: 2;
+    left: 50%;
+    top: 55%;
+    padding: 3rem 3rem 3rem 3rem;
+    -webkit-transform: translate(-50%,-40%);
+    -ms-transform: translate(-50%,-40%);
+    transform: translate(-50%,-40%);
+    position: absolute
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit.hidden {
+    display: block
+}
+
+@supports (width: clamp(31.25rem ,13.3928571429rem + 35.7142857143vw ,56.25rem)) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit {
+        width:clamp(31.25rem ,13.3928571429rem + 35.7142857143vw ,56.25rem)
+    }
+}
+
+@supports not (width: clamp(31.25rem ,13.3928571429rem + 35.7142857143vw ,56.25rem)) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit {
+        width:calc(31.25rem + 25 * (100vw - 50rem)/ 70)
+    }
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .task-edit-btn {
+    width: 100%;
+    padding: .5rem 1rem;
+    border-radius: 300px;
+    margin-top: 3rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .single-task-form h4 {
+    font-family: JosefinSans;
+    text-align: center;
+    margin-bottom: 2rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .single-task-form p {
+    margin-bottom: 0;
+    margin-top: 0
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .single-task-form .form-control {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 9.5rem 1fr;
+    grid-template-columns: 9.5rem 1fr;
+    justify-items: start;
+    margin-bottom: 2rem;
+    width: 100%
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .single-task-form label {
+    margin-bottom: 0;
+    font-size: 1rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .task-edit-completed {
+    width: auto
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .close-task-edit {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .task-edit-name {
+    outline: 0;
+    border-radius: 3px;
+    padding: .5rem;
+    border-top-right-radius: 30rem;
+    border-bottom-right-radius: 30rem;
+    width: 100%
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status {
+    position: relative
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status input {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    opacity: 0
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status .radio-check {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-60%);
+    -ms-transform: translate(-50%,-60%);
+    transform: translate(-50%,-60%);
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 30rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status .radio-check.checked {
+    background: -webkit-gradient(linear,left top,left bottom,from(#57ddff),to(#c058f3));
+    background: -o-linear-gradient(#57ddff,#c058f3);
+    background: linear-gradient(#57ddff,#c058f3);
+    border: none
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-60%);
+    -ms-transform: translate(-50%,-60%);
+    transform: translate(-50%,-60%);
+    height: .6rem;
+    display: none
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status img.checked {
+    display: block
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info .task-status {
+    position: relative
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info .task-status input {
+    position: relative;
+    z-index: 1;
+    opacity: 0
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info .task-status .radio-check {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-60%);
+    -ms-transform: translate(-50%,-60%);
+    transform: translate(-50%,-60%);
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 30rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info .task-status .radio-check.checked {
+    background: -webkit-gradient(linear,left top,left bottom,from(#57ddff),to(#c058f3));
+    background: -o-linear-gradient(#57ddff,#c058f3);
+    background: linear-gradient(#57ddff,#c058f3);
+    border: none
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info .task-status .radio-check.completed {
+    background: -webkit-gradient(linear,left top,left bottom,from(#57ddff),to(#c058f3));
+    background: -o-linear-gradient(#57ddff,#c058f3);
+    background: linear-gradient(#57ddff,#c058f3);
+    border: none
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info .task-status img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-60%);
+    -ms-transform: translate(-50%,-60%);
+    transform: translate(-50%,-60%);
+    height: .6rem;
+    display: none
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info .task-status img.checked {
+    display: block
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info .task-title {
+    margin-left: 1rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .task-info .task-title.checked {
+    text-decoration: line-through
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .delete-task {
+    height: .5rem;
+    cursor: pointer
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs {
+    font-family: JosefinSansItalic
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-navigation {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 1rem 1rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-navigation .tabs__navigation {
+    position: relative
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-navigation .tabs__navigation button {
+    margin-left: 1rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-navigation .tabs__navigation .rewardTab {
+    position: relative
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-navigation .tabs__navigation .rewardTab svg {
+    fill: hsl(233deg,14%,35%);
+    height: .9rem;
+    position: absolute;
+    right: -1.2rem;
+    bottom: 0
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-navigation .tabs__navigation .rewardTab svg.hidden {
+    display: none
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-navigation .tabs__navigation .rewardsTabPopup {
+    position: absolute;
+    width: 5rem;
+    height: 100%;
+    left: 16%;
+    top: 0;
+    background-color: rgba(169,169,169,0);
+    z-index: 100
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-navigation .tabs__navigation .rewardsTabPopup.hidden {
+    display: none
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 3px
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation {
+    position: relative
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation button {
+    margin-left: 1rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardButton {
+    display: inline-block
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardTab {
+    position: relative;
+    margin-right: .5rem
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardTab svg {
+    fill: hsl(233deg,14%,35%);
+    height: .9rem;
+    position: absolute;
+    right: -1.3rem;
+    bottom: 0
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardTab svg.hidden {
+    display: none
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardsTabPopup {
+    position: absolute;
+    width: 5rem;
+    height: 100%;
+    left: 20%;
+    top: 0;
+    background-color: rgba(169,169,169,0);
+    z-index: 100
+}
+
+.app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardsTabPopup.hidden {
+    display: none
+}
+
+.lock-popup {
+    position: absolute;
+    padding: 3rem;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 80%;
+    text-align: center;
+    font-size: 1.5rem
+}
+
+.lock-popup svg {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer
+}
+
+.lock-popup.hidden {
+    display: none
+}
+
+.rewards-page {
+    margin-top: 2.5rem;
+    width: 100%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px
+}
+
+.rewards-page button {
+    padding: .5rem .8rem .5rem .6rem;
+    border-radius: 30rem
+}
+
+.rewards-page .setRewards__wrapper {
+    padding: 1.5rem
+}
+
+.rewards-page .setRewards__wrapper .setRewards__content .setRewards-header h1 {
+    font-size: 2rem;
+    text-align: center
+}
+
+.rewards-page .setRewards__wrapper .setRewards__content .setRewards-form {
+    margin-top: 1.5rem
+}
+
+.rewards-page .setRewards__wrapper .setRewards__content .setRewards-form form {
+    text-align: center
+}
+
+.rewards-page .setRewards__wrapper .setRewards__content .setRewards-form form h1 {
+    font-size: 1.5rem
+}
+
+.rewards-page .setRewards__wrapper .setRewards__content .setRewards-form form input {
+    margin-top: 1.5rem;
+    outline: 0;
+    display: block;
+    border-radius: 30rem;
+    padding: .5rem .5rem .5rem 1rem;
+    background-color: transparent;
+    width: 100%;
+    text-align: center
+}
+
+.rewards-page .setRewards__wrapper .setRewards__content .setRewards-form form button {
+    margin-top: 1rem;
+    width: 10rem
+}
+
+.rewards-page .filterRewards__wrapper {
+    padding: 1.5rem
+}
+
+.rewards-page .filterRewards__wrapper .filterRewards__content .filterRewards-header h1 {
+    font-size: 1.5rem
+}
+
+.rewards-page .filterRewards__wrapper .filterRewards__content .filterRewards-form {
+    margin-top: 2rem
+}
+
+.rewards-page .filterRewards__wrapper .filterRewards__content .filterRewards-form form .reward {
+    margin-top: 1rem
+}
+
+.rewards-page .filterRewards__wrapper .filterRewards__content .filterRewards-form form .reward h4 {
+    font-size: 1.2rem;
+    margin-bottom: .5rem
+}
+
+.rewards-page .filterRewards__wrapper .filterRewards__content .filterRewards-form form .reward input {
+    outline: 0;
+    background: 0 0;
+    padding: .5rem 1rem;
+    border-radius: 30rem;
+    width: 100%
+}
+
+.rewards-page .filterRewards__wrapper .filterRewards__content .filterRewards-form form button {
+    border-radius: 30rem;
+    width: 15rem;
+    display: block;
+    margin: 1.5rem auto 0
+}
+
+.rewards-page .rewards__wrapper {
+    position: relative;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem
+}
+
+.rewards-page .rewards__wrapper .rewards__content .rewards-header {
+    text-align: center
+}
+
+.rewards-page .rewards__wrapper .rewards__content .rewards-header h4 {
+    font-size: .9rem
+}
+
+.rewards-page .rewards__wrapper .rewards__content .rewards-body {
+    margin-top: 1rem;
+    text-align: center
+}
+
+.rewards-page .rewards__wrapper .rewards__content .rewards-body h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem
+}
+
+.rewards-page .rewards__wrapper .rewards__content .rewards-body h2 {
+    font-size: 1rem
+}
+
+.rewards-page .rewards__wrapper .rewards__content .rewards-body h2 span {
+    font-weight: 700
+}
+
+.rewards-page .rewards__wrapper .rewards__content .rewards-body .reward-container .getReward {
+    margin: 1.5rem auto;
+    font-size: 1.5rem;
+    text-transform: capitalize
+}
+
+.rewards-page .rewards__wrapper .rewards__content .rewards-body .reward-container button {
+    border-radius: 30rem;
+    width: 10rem
+}
+
+.rewards-page .rewards__wrapper .resetRewards {
+    position: absolute;
+    top: 2%;
+    right: 0;
+    border: none
+}
+
+.motivation-page .motivation__wrapper {
+    margin-top: 2rem;
+    border-radius: 3px;
+    padding: 1.5rem;
+    text-align: center
+}
+
+.motivation-page .motivation__wrapper .motivation__content .motivation__header {
+    font-size: 2rem
+}
+
+.motivation-page .motivation__wrapper .motivation__content .quote-area {
+    margin-top: 1rem
+}
+
+.motivation-page .motivation__wrapper .motivation__content .quote-area .quote {
+    font-size: 1.2rem
+}
+
+.motivation-page .motivation__wrapper .motivation__content .quote-area .quote .quoteTxt {
+    margin: 1rem 0
+}
+
+.motivation-page .motivation__wrapper .motivation__content .quote-area .author {
+    margin-top: .5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: right;
+    -ms-flex-pack: right;
+    justify-content: right;
+    font-size: 1rem
+}
+
+.motivation-page .motivation__wrapper .motivation__content .quote-button {
+    margin-top: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 30rem;
+    width: 100%
+}
+
+.history__wrapper {
+    position: relative;
+    margin-top: 2rem;
+    padding: 1.5rem
+}
+
+.history__wrapper .history__content .history__starter-section .history__header h4 {
+    text-align: center;
+    font-size: 1.5rem
+}
+
+.history__wrapper .history__content .history__starter-section .history__header h5 {
+    margin-top: .5rem;
+    text-align: center;
+    font-size: 1.1rem
+}
+
+.history__wrapper .history__content .history__starter-section .history__form {
+    margin-top: 2rem
+}
+
+.history__wrapper .history__content .history__starter-section .history__form form h4 {
+    font-size: 1.3rem;
+    margin-bottom: .5rem;
+    margin-top: 1rem
+}
+
+.history__wrapper .history__content .history__starter-section .history__form form input {
+    width: 100%;
+    outline: 0;
+    background: 0 0;
+    border-radius: 30rem;
+    padding: .5rem 1rem;
+    text-align: center;
+    margin-bottom: .5rem
+}
+
+.history__wrapper .history__content .history__starter-section .history__form form input.years-old {
+    margin-bottom: 2rem
+}
+
+.history__wrapper .history__content .history__starter-section .history__form form button {
+    margin-top: 1rem;
+    width: 100%;
+    display: block;
+    padding: .5rem 1rem;
+    border-radius: 30rem
+}
+
+.history__wrapper .history__content .history__regular-section .history__header {
+    margin-top: 1.2rem
+}
+
+.history__wrapper .history__content .history__regular-section .history__header h2 {
+    font-size: 1.5rem;
+    text-align: center
+}
+
+.history__wrapper .history__content .history__regular-section .history__time-counter {
+    margin-top: 1.5rem
+}
+
+.history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 1.5rem
+}
+
+.history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh .container {
+    padding: 2px;
+    width: 70%;
+    border-radius: 2px
+}
+
+.history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh .container .text {
+    width: 70%;
+    height: 1.5rem;
+    border-radius: 2px
+}
+
+.history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh .counter {
+    margin-left: 1rem;
+    font-size: 1.5rem
+}
+
+.history__wrapper .history__content .history__regular-section .reset {
+    position: absolute;
+    top: 1rem;
+    right: 1rem
+}
+
+.light .footer {
+    width: 100%
+}
+
+.light .footer .footer__container {
+    border-top: 1px solid #d3d3d3;
+    padding: .5rem;
+    text-align: center
+}
+
+.light .footer .footer__container h1 {
+    font-size: .7rem
+}
+
+.light .footer .footer__container h1 a {
+    color: gray
+}
+
+.light .footer .footer__container h1 a:hover {
+    text-decoration: underline
+}
+
+.dark .footer {
+    width: 100%
+}
+
+.dark .footer .footer__container {
+    color: gray;
+    border-top: 1px solid hsl(237deg,14%,26%);
+    padding: .5rem;
+    text-align: center
+}
+
+.dark .footer .footer__container h1 {
+    font-size: .7rem
+}
+
+.dark .footer .footer__container h1 a {
+    color: #d3d3d3
+}
+
+.dark .footer .footer__container h1 a:hover {
+    text-decoration: underline
+}
+
+.dark .loader__wrapper {
+    background-color: hsl(235deg,24%,19%)
+}
+
+.dark .loader__wrapper .loader__content .loader__box .text {
+    color: hsl(236deg,33%,92%)
+}
+
+.dark .loader__wrapper .loader__content .loader__box .clock {
+    border: 3px solid hsl(236deg,33%,92%)
+}
+
+.dark .loader__wrapper .loader__content .loader__box .clock:after {
+    background-color: hsl(236deg,33%,92%)
+}
+
+.dark .loader__wrapper .loader__content .loader__box .clock:before {
+    background-color: hsl(236deg,33%,92%)
+}
+
+.dark .header-title h1 {
+    color: hsl(0deg,0%,98%)
+}
+
+.dark ul.tasks {
+    background-color: hsl(235deg,24%,19%)
+}
+
+.dark ul.tasks li {
+    color: hsl(0deg,0%,98%)
+}
+
+.dark ul.task-control li form input {
+    color: hsl(0deg,0%,98%)
+}
+
+.dark ul.task-control li form button {
+    color: hsl(0deg,0%,98%)
+}
+
+.dark .content__form-result .loading-text {
+    color: hsl(0deg,0%,98%)
+}
+
+.dark .content__form-result ul li {
+    border-bottom: 1px solid hsl(237deg,14%,26%)
+}
+
+.dark .content__form-result ul li .singular-control .edit-task .content-task-edit {
+    background-color: hsla(236deg,22%,15%,.929)
+}
+
+.dark .content__form-result ul li .singular-control .edit-task .content-task-edit .task-edit-btn {
+    border: 1px solid hsl(0deg,0%,98%)
+}
+
+.dark .content__form-result ul li .singular-control .edit-task .content-task-edit .task-edit-name {
+    border: 1px solid hsl(0deg,0%,98%);
+    background-color: hsl(235deg,24%,19%);
+    color: hsl(0deg,0%,98%)
+}
+
+.dark .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status:hover .radio-check {
+    border: 1px solid #c058f3
+}
+
+.dark .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status .radio-check {
+    border: 1px solid hsl(0deg,0%,98%)
+}
+
+.dark .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status .radio-check.checked {
+    background: -webkit-gradient(linear,left top,left bottom,from(#57ddff),to(#c058f3));
+    background: -o-linear-gradient(#57ddff,#c058f3);
+    background: linear-gradient(#57ddff,#c058f3)
+}
+
+.dark .content__form-result ul li .task-info .task-status .radio-check {
+    border: 1px solid hsl(237deg,14%,26%)
+}
+
+.dark .content__form-result ul li .task-info .task-status .radio-check.checked {
+    background: -webkit-gradient(linear,left top,left bottom,from(#57ddff),to(#c058f3));
+    background: -o-linear-gradient(#57ddff,#c058f3);
+    background: linear-gradient(#57ddff,#c058f3)
+}
+
+.dark .content__form-result ul li .task-info .task-status .radio-check.completed {
+    background: -webkit-gradient(linear,left top,left bottom,from(#57ddff),to(#c058f3));
+    background: -o-linear-gradient(#57ddff,#c058f3);
+    background: linear-gradient(#57ddff,#c058f3)
+}
+
+.dark .content__form-result ul li .task-info .task-title.checked {
+    color: hsl(233deg,14%,35%)
+}
+
+.dark .tabs .task-navigation {
+    background-color: hsl(235deg,24%,19%)
+}
+
+.dark .tabs .task-navigation .tabs__navigation button {
+    color: hsl(233deg,14%,35%)
+}
+
+.dark .tabs .task-navigation .tabs__navigation button:hover {
+    color: hsl(0deg,0%,98%)
+}
+
+.dark .tabs .task-navigation .tabs__navigation ._tab-active {
+    color: hsl(220deg,98%,61%)
+}
+
+.dark .tabs .task-navigation .tabs__navigation ._tab-active:hover {
+    color: hsl(220deg,98%,61%)
+}
+
+.dark .tabs .task-navigation .clear-completed button {
+    color: hsl(0deg,0%,98%)
+}
+
+.dark .tabs .task-navigation .task-left {
+    color: hsl(0deg,0%,98%)
+}
+
+.dark .tabs .task-mobile-navigation {
+    background-color: hsl(235deg,24%,19%)
+}
+
+.dark .tabs .task-mobile-navigation .tabs__navigation button {
+    color: hsl(233deg,14%,35%)
+}
+
+.dark .tabs .task-mobile-navigation .tabs__navigation button:hover {
+    color: hsl(0deg,0%,98%)
+}
+
+.dark .tabs .task-mobile-navigation .tabs__navigation ._tab-active {
+    color: hsl(220deg,98%,61%)
+}
+
+.dark .tabs .task-mobile-navigation .tabs__navigation ._tab-active:hover {
+    color: hsl(220deg,98%,61%)
+}
+
+.dark .header-theme .dark {
+    display: none
+}
+
+.dark .background-setting .light {
+    display: none
+}
+
+.dark .rewards-page {
+    background-color: hsl(235deg,24%,19%);
+    color: hsl(0deg,0%,98%);
+    border-bottom: 1px solid hsl(237deg,14%,26%)
+}
+
+.dark .rewards-page button {
+    border: 1px solid hsl(236deg,33%,92%);
+    color: hsl(236deg,33%,92%)
+}
+
+.dark .rewards-page .setRewards__wrapper .setRewards__content .setRewards-form form input {
+    border: 1px solid hsl(236deg,33%,92%);
+    color: hsl(236deg,33%,92%);
+    background-color: transparent
+}
+
+.dark .rewards-page .filterRewards__wrapper .filterRewards__content .filterRewards-form form .reward input {
+    border: 1px solid hsl(236deg,33%,92%);
+    color: hsl(236deg,33%,92%)
+}
+
+.dark .rewards-page .rewards__wrapper .resetRewards {
+    color: hsl(234deg,11%,52%)
+}
+
+.dark .rewards-page .rewards__wrapper .resetRewards:hover {
+    color: hsl(236deg,33%,92%)
+}
+
+.dark .lock-popup {
+    background-color: hsla(236deg,22%,15%,.929);
+    color: hsl(0deg,0%,98%);
+    -webkit-box-shadow: 0 5px 15px 2px #0b0b0b;
+    box-shadow: 0 5px 15px 2px #0b0b0b
+}
+
+.dark .lock-popup svg path {
+    fill: hsl(0deg,0%,98%)
+}
+
+.dark .motivation-page .motivation__wrapper {
+    background-color: hsl(235deg,24%,19%);
+    border-bottom: 1px solid hsl(237deg,14%,26%);
+    color: hsl(236deg,33%,92%)
+}
+
+.dark .motivation-page .motivation__wrapper .motivation__content .quote-button {
+    border: 1px solid hsl(236deg,33%,92%)
+}
+
+.dark .history__wrapper {
+    background-color: hsl(235deg,24%,19%);
+    border-bottom: 1px solid hsl(237deg,14%,26%);
+    color: hsl(236deg,33%,92%)
+}
+
+.dark .history__wrapper .history__content .history__starter-section .history__form form input {
+    color-scheme: dark;
+    color: hsl(236deg,33%,92%);
+    border: 1px solid hsl(236deg,33%,92%)
+}
+
+.dark .history__wrapper .history__content .history__starter-section .history__form form button {
+    border: 1px solid hsl(236deg,33%,92%)
+}
+
+.dark .history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh .container {
+    border: 1px solid hsl(236deg,33%,92%)
+}
+
+.dark .history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh .container .text {
+    background-color: hsl(236deg,33%,92%)
+}
+
+.light .loader__wrapper {
+    background-color: hsl(236deg,33%,92%)
+}
+
+.light .loader__wrapper .loader__content .loader__box .text {
+    color: hsl(235deg,21%,11%)
+}
+
+.light .loader__wrapper .loader__content .loader__box .clock {
+    border: 3px solid hsl(235deg,21%,11%)
+}
+
+.light .loader__wrapper .loader__content .loader__box .clock:after {
+    background-color: hsl(235deg,21%,11%)
+}
+
+.light .loader__wrapper .loader__content .loader__box .clock:before {
+    background-color: hsl(235deg,21%,11%)
+}
+
+.light .header-title h1 {
+    color: hsl(0deg,0%,98%)
+}
+
+.light ul.tasks {
+    background-color: hsl(236deg,33%,92%)
+}
+
+.light ul.tasks li {
+    color: hsl(235deg,21%,11%)
+}
+
+.light ul.task-control {
+    -webkit-box-shadow: 0 1px 6px -2px #d3d3d3;
+    box-shadow: 0 1px 6px -2px #d3d3d3
+}
+
+.light ul.task-control li form input {
+    color: hsl(235deg,21%,11%)
+}
+
+.light ul.task-control li form button {
+    color: hsl(235deg,21%,11%)
+}
+
+.light .content__form-result .loading-text {
+    color: hsl(235deg,21%,11%)
+}
+
+.light .content__form-result ul {
+    -webkit-box-shadow: 0 10px 5px -2px #d3d3d3;
+    box-shadow: 0 10px 5px -2px #d3d3d3
+}
+
+.light .content__form-result ul li {
+    border-bottom: 1px solid #d3d3d3
+}
+
+.light .content__form-result ul li .singular-control .edit-task .content-task-edit {
+    background-color: hsla(235deg,32%,92%,.969)
+}
+
+.light .content__form-result ul li .singular-control .edit-task .content-task-edit .task-edit-btn {
+    border: 1px solid hsl(235deg,21%,11%)
+}
+
+.light .content__form-result ul li .singular-control .edit-task .content-task-edit .task-edit-name {
+    border: 1px solid hsl(235deg,21%,11%);
+    background-color: hsl(236deg,33%,92%);
+    color: hsl(235deg,21%,11%)
+}
+
+.light .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status:hover .radio-check {
+    border: 1px solid #c058f3
+}
+
+.light .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status .radio-check {
+    border: 1px solid hsl(235deg,21%,11%)
+}
+
+.light .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status .radio-check.checked {
+    background: -webkit-gradient(linear,left top,left bottom,from(#57ddff),to(#c058f3));
+    background: -o-linear-gradient(#57ddff,#c058f3);
+    background: linear-gradient(#57ddff,#c058f3)
+}
+
+.light .content__form-result ul li .task-info .task-status .radio-check {
+    border: 1px solid hsl(237deg,14%,26%)
+}
+
+.light .content__form-result ul li .task-info .task-status .radio-check.checked {
+    background: -webkit-gradient(linear,left top,left bottom,from(#57ddff),to(#c058f3));
+    background: -o-linear-gradient(#57ddff,#c058f3);
+    background: linear-gradient(#57ddff,#c058f3)
+}
+
+.light .content__form-result ul li .task-info .task-status .radio-check.completed {
+    background: -webkit-gradient(linear,left top,left bottom,from(#57ddff),to(#c058f3));
+    background: -o-linear-gradient(#57ddff,#c058f3);
+    background: linear-gradient(#57ddff,#c058f3)
+}
+
+.light .content__form-result ul li .task-info .task-title.checked {
+    color: hsl(233deg,14%,35%)
+}
+
+.light .tabs .task-navigation {
+    background-color: hsl(236deg,33%,92%);
+    -webkit-box-shadow: 0 10px 15px -2px #d3d3d3;
+    box-shadow: 0 10px 15px -2px #d3d3d3
+}
+
+.light .tabs .task-navigation .tabs__navigation button {
+    color: hsl(233deg,14%,35%)
+}
+
+.light .tabs .task-navigation .tabs__navigation button:hover {
+    color: hsl(235deg,21%,11%)
+}
+
+.light .tabs .task-navigation .tabs__navigation ._tab-active {
+    color: hsl(220deg,98%,61%)
+}
+
+.light .tabs .task-navigation .tabs__navigation ._tab-active:hover {
+    color: hsl(220deg,98%,61%)
+}
+
+.light .tabs .task-navigation .clear-completed button {
+    color: hsl(235deg,21%,11%)
+}
+
+.light .tabs .task-navigation .task-left {
+    color: hsl(235deg,21%,11%)
+}
+
+.light .tabs .task-mobile-navigation {
+    background-color: hsl(236deg,33%,92%);
+    -webkit-box-shadow: 0 10px 15px 2px #d3d3d3;
+    box-shadow: 0 10px 15px 2px #d3d3d3
+}
+
+.light .tabs .task-mobile-navigation .tabs__navigation button {
+    color: hsl(233deg,14%,35%)
+}
+
+.light .tabs .task-mobile-navigation .tabs__navigation button:hover {
+    color: hsl(235deg,21%,11%)
+}
+
+.light .tabs .task-mobile-navigation .tabs__navigation ._tab-active {
+    color: hsl(220deg,98%,61%)
+}
+
+.light .tabs .task-mobile-navigation .tabs__navigation ._tab-active:hover {
+    color: hsl(220deg,98%,61%)
+}
+
+.light .close-task-edit svg path {
+    fill: #000
+}
+
+.light .header-theme .light {
+    display: none
+}
+
+.light .background-setting .dark {
+    display: none
+}
+
+.light .rewards-page {
+    background-color: hsl(236deg,33%,92%);
+    color: hsl(235deg,21%,11%);
+    border-bottom: 1px solid #d3d3d3
+}
+
+.light .rewards-page button {
+    border: 1px solid hsl(237deg,14%,26%);
+    color: hsl(237deg,14%,26%)
+}
+
+.light .rewards-page .setRewards__wrapper .setRewards__content .setRewards-form form input {
+    border: 1px solid hsl(237deg,14%,26%);
+    color: hsl(237deg,14%,26%)
+}
+
+.light .rewards-page .filterRewards__wrapper .filterRewards__content .filterRewards-form form .reward input {
+    border: 1px solid hsl(237deg,14%,26%);
+    color: hsl(237deg,14%,26%)
+}
+
+.light .rewards-page .rewards__wrapper .resetRewards {
+    color: hsl(234deg,11%,52%)
+}
+
+.light .rewards-page .rewards__wrapper .resetRewards:hover {
+    color: hsl(237deg,14%,26%)
+}
+
+.light .lock-popup {
+    background-color: hsla(235deg,32%,92%,.969);
+    color: hsl(234deg,11%,52%);
+    -webkit-box-shadow: 0 10px 15px 2px #d3d3d3;
+    box-shadow: 0 10px 15px 2px #d3d3d3
+}
+
+.light .lock-popup svg path {
+    fill: hsl(234deg,11%,52%)
+}
+
+.light .motivation-page .motivation__wrapper {
+    background-color: hsl(236deg,33%,92%);
+    border-bottom: 1px solid #d3d3d3;
+    color: hsl(235deg,21%,11%)
+}
+
+.light .motivation-page .motivation__wrapper .motivation__content .quote-button {
+    border: 1px solid hsl(235deg,21%,11%)
+}
+
+.light .history__wrapper {
+    background-color: hsl(236deg,33%,92%);
+    border-bottom: 1px solid #d3d3d3;
+    color: hsl(235deg,21%,11%)
+}
+
+.light .history__wrapper .history__content .history__starter-section .history__form form input {
+    color-scheme: #fff;
+    color: hsl(235deg,21%,11%);
+    border: 1px solid hsl(235deg,21%,11%)
+}
+
+.light .history__wrapper .history__content .history__starter-section .history__form form button {
+    border: 1px solid hsl(235deg,21%,11%)
+}
+
+.light .history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh .container {
+    border: 1px solid hsl(235deg,21%,11%)
+}
+
+.light .history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh .container .text {
+    background-color: rgba(43,43,43,.701)
+}
+
+@media (min-width: 426px) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardTab svg {
+        right:-1.2rem
+    }
+
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardsTabPopup {
+        left: 25%
+    }
+}
+
+@media (min-width: 575px) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardsTabPopup {
+        left:28%
+    }
+}
+
+@media (min-width: 640px) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation .tabs__navigation .rewardsTabPopup {
+        left:31%
+    }
+}
+
+@media (min-width: 801px) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-mobile-navigation {
+        display:none
+    }
+}
+
+@media (min-width: 950px) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .tabs .task-navigation .tabs__navigation .rewardTab {
+        margin-right:.5rem
+    }
+}
+
+@media (min-width: 1000px) {
+    .lock-popup {
+        top:80%;
+        width: 50%
+    }
+}
+
+@media (min-width: 1020px) {
+    .history__wrapper .history__content .history__starter-section .history__form form button {
+        width:10rem;
+        margin: 0 auto
+    }
+}
+
+@media (min-width: 1200px) {
+    .app__wrapper .app__content .background-setting img {
+        width:100vw
+    }
+}
+
+@media (max-width: 1020px) {
+    .history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh {
+        margin-bottom:1rem;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+
+    .history__wrapper .history__content .history__regular-section .history__time-counter .wrapperh .container {
+        width: 100%;
+        margin: .5rem 0 .7rem 0
+    }
+}
+
+@media (max-width: 1000px) {
+    .dark .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status:hover .radio-check {
+        border:1px solid hsl(0deg,0%,98%)
+    }
+
+    .light .content__form-result ul li .singular-control .edit-task .content-task-edit .task-status:hover .radio-check {
+        border: 1px solid hsl(235deg,21%,11%)
+    }
+}
+
+@media (max-width: 799px) {
+    @supports (width:clamp(19.375rem ,7.266440501rem + 60.5427974948vw ,37.5rem)) {
+        .app__wrapper .app__content .taskManager__wrapper .taskManager__content {
+            width:clamp(19.375rem ,7.266440501rem + 60.5427974948vw ,37.5rem)
+        }
+    }
+
+    @supports not (width: clamp(19.375rem ,7.266440501rem + 60.5427974948vw ,37.5rem)) {
+        .app__wrapper .app__content .taskManager__wrapper .taskManager__content {
+            width:calc(19.375rem + 18.125 * (100vw - 20rem)/ 29.9375)
+        }
+    }
+
+    @supports (width: clamp(19.375rem ,7.266440501rem + 60.5427974948vw ,37.5rem)) {
+        .app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit {
+            width:clamp(19.375rem ,7.266440501rem + 60.5427974948vw ,37.5rem)
+        }
+    }
+
+    @supports not (width: clamp(19.375rem ,7.266440501rem + 60.5427974948vw ,37.5rem)) {
+        .app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit {
+            width:calc(19.375rem + 18.125 * (100vw - 20rem)/ 29.9375)
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .rewards-page .rewards__wrapper .rewards__content .rewards-body .reward-container button {
+        width:100%
+    }
+}
+
+@media (max-width: 600px) {
+    .app__wrapper .app__content .taskManager__wrapper .taskManager__content .content__form-result ul li .singular-control .edit-task .content-task-edit .single-task-form .form-control {
+        -ms-grid-columns:6rem 1fr;
+        grid-template-columns: 6rem 1fr
+    }
+}
+
+@media (max-width: 424px) {
+    @supports (font-size:clamp(1.25rem ,0.6730769231rem + 2.8846153846vw ,1.4375rem)) {
+        .lock-popup {
+            font-size:clamp(1.25rem ,.6730769231rem + 2.8846153846vw ,1.4375rem)
+        }
+    }
+
+    @supports not (font-size: clamp(1.25rem ,0.6730769231rem + 2.8846153846vw ,1.4375rem)) {
+        .lock-popup {
+            font-size:calc(1.25rem + .1875 * (100vw - 20rem)/ 6.5)
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    @supports (font-size:clamp(0.875rem ,0.4952531646rem + 1.8987341772vw ,0.96875rem)) {
+        :root {
+            font-size:clamp(.875rem ,.4952531646rem + 1.8987341772vw ,.96875rem)
+        }
+    }
+
+    @supports not (font-size: clamp(0.875rem ,0.4952531646rem + 1.8987341772vw ,0.96875rem)) {
+        :root {
+            font-size:calc(.875rem + .09375 * (100vw - 20rem)/ 4.9375)
+        }
+    }
+}
+
+@media (max-width: 424px) and (min-width:26.5em) {
+    .lock-popup {
+        font-size:inherit
+    }
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate" translate="no">
+
+<head>
+	<title>Task Manager</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta class="rphone" name="theme-color">
+	<!-- Windows Phone -->
+	<meta class="wphone" name="msapplication-navbutton-color">
+	<!-- iOS Safari -->
+	<meta class="iosphone" name="apple-mobile-web-app-status-bar-style">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google" content="notranslate" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css?_v=20220425170632" />
+
+</head>
+
+<body>
+	<div class="loader__wrapper">
+		<div class="loader__content">
+			<div class="loader__box">
+				<div class="clock"></div>
+				<div class="text">
+					<span>
+						Task Manager
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		//preloader
+		function preloader() {
+			var loaderWrapper = document.querySelector('.loader__wrapper');
+			const today = new Date();
+			let h = today.getHours();
+			if (!localStorage.getItem('entry')) {
+				loaderWrapper.classList.add('active')
+				setTimeout(() => {
+					loaderWrapper.classList.remove('active')
+
+					localStorage.setItem('entry', h)
+				}, 1700)
+			}
+
+			if (localStorage.getItem('entry') != h) {
+				loaderWrapper.classList.add('active')
+				setTimeout(() => {
+					loaderWrapper.classList.remove('active')
+
+					localStorage.setItem('entry', h)
+				}, 1700)
+			}
+
+		}
+		preloader();
+	</script>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+			</div>
+		</header>
+		<main class="page">
+			<div class="app__wrapper">
+				<div class="app__content">
+					<div class="background-setting">
+						<!-- <picture><source data-srcset="img/bg-desktop-dark.webp" type="image/webp"><img data-src="img/bg-desktop-dark.jpg" alt=""></picture> -->
+						<picture class="dark">
+							<source media="(min-width:800px)" srcset="img/bg-desktop-dark.jpg">
+							<source media="(max-width:799px)" srcset="img/bg-mobile-dark.jpg">
+							<img src="img/bg-desktop-dark.jpg" style="width:100vw;">
+						</picture>
+						<picture class="light">
+							<source media="(min-width:800px)" srcset="img/bg-desktop-light.jpg">
+							<source media="(max-width:799px)" srcset="img/bg-mobile-light.jpg">
+							<img src="img/bg-desktop-light.jpg" style="width:100vw;">
+						</picture>
+					</div>
+
+
+					<div class="taskManager__wrapper">
+						<div class="taskManager__content">
+							<div class="content__header">
+								<div class="header-title">
+									<h1>To do</h1>
+								</div>
+								<div class="header-theme">
+									<img class="light" data-src="img/icon-sun.svg" alt="">
+									<img class="dark" data-src="img/icon-moon.svg" alt="">
+								</div>
+							</div>
+							<div data-tabs class="tabs">
+								<div data-tabs-body class="tabs__content">
+									<div class="tabs__body first-tab">
+										<div class="content__form-control">
+											<ul class="tasks task-control">
+												<li>
+													<form class="task-form">
+														<!-- <input class="pc" type="text" name="name" id="task-input" placeholder="e.g. go to gym" autocomplete="off" maxlength="40"> -->
+
+														<!-- <button type="submit" class="create-task">Create</button> -->
+													</form>
+												</li>
+												<div class="form-alert"></div>
+											</ul>
+										</div>
+										<div class="content__form-result">
+											<p class="loading-text">Loading...</p>
+											<ul class="tasks all-tasks">
+											</ul>
+										</div>
+									</div>
+									<div class="tabs__body rewards-page">
+										<div class="rewards-page__wrapper">
+										</div>
+									</div>
+									<div class="tabs__body motivation-page">
+										<div class="motivation__wrapper">
+											<div class="motivation__content">
+												<div class="motivation__header">
+													Quote of the day
+												</div>
+												<div class="quote-area">
+													<div class="quote">
+														<i class="fas fa-quote-left"></i>
+														<div class="quoteTxt"></div>
+														<i class="fas fa-quote-right"></i>
+													</div>
+													<div class="author">
+														-<div class="quote-author"></div>
+													</div>
+												</div>
+												<button class="quote-button">New Quote</button>
+											</div>
+										</div>
+									</div>
+									<div class="tabs__body history-page">
+										<div class="history__wrapper">
+											<div class="history__content">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="task-navigation">
+									<div class="task-left"><span id="hmany"></span> items left</div>
+									<nav data-tabs-titles data-da=".task-mobile-navigation,800" class="tabs__navigation">
+										<button type="button" class="tabs__title _tab-active principalTab ">All</button>
+										<button type="button" class="tabs__title rewardTab">
+											Rewards
+
+											<svg class="lock" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+												<g fill="none">
+													<path d="M0 0h24v24H0V0z" />
+													<path d="M0 0h24v24H0V0z" opacity=".87" />
+												</g>
+												<path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+											</svg>
+
+										</button>
+										<button type="button" class="tabs__title ">Motivation</button>
+										<button type="button" class="tabs__title ">Life Journey</button>
+										<div class="rewardsTabPopup"></div>
+									</nav>
+									<div class="lock-popup hidden">
+										To open the rewards section you must have at least two completed tasks in your task list!
+										<svg class="close" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+											<path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z" />
+										</svg>
+									</div>
+
+
+									<div class="clear-completed"><button class="clear-completed">Clear Completed</button></div>
+								</div>
+								<div class="task-mobile-navigation"></div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<h1>Developed by <a href="https://cojocaruvlad.netlify.app/">Vlad Cojocaru</a> and designed by <a href="https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-rJBK2uxX5">Frontend Mentor</a> </h1>
+			</div>
+		</footer>
+	</div>
+	<!-- <div id="popup" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close">Закрыть</button>
+			<div class="popup__text">
+				Text
+			</div>
+		</div>
+	</div>
+</div> -->
+	<script src="js/script.js"></script>
+</body>
+
+</html>
